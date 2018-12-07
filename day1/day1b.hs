@@ -8,6 +8,6 @@ findPremierDup xs = findLoop 0 (IntSet.fromList [0]) xs
 
 findLoop acc s (y:ys) 
     | IntSet.member n s = n
-    | otherwise = {-# SCC "chercheDup" #-} findLoop n (IntSet.insert n s) ys
+    | otherwise = findLoop n (IntSet.insert n s) ys
       where n = y + acc
 findLoop _ _ _ = 0 
