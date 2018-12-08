@@ -3,7 +3,6 @@ import Data.List
 
 main = interact day2
 
---day2 = presente.calculeChecksum.obtient
 day2 = presente.calculeChecksum.obtient
 
 calculeChecksum xs = a * b
