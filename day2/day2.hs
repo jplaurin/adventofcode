@@ -20,7 +20,7 @@ compte xs= (a,b)
           freqList = nub.map length.group.sort $ xs
 
 tryAllPair xs = head [common | x<-xs,y<-xs,x<=y, let common = findCommon x y, let l = length common , l==(ml-1) ]
-    where ml = maximum.map length $ xs
+    where ml = length.head $ xs
 
 findCommon xs ys = map fst.filter (\(a,b)-> a==b ).zip xs $ ys
 
