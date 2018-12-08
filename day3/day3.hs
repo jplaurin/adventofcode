@@ -9,7 +9,7 @@ process = id
 
 obtient = map (lineToFourInt).lines.filter (/=':')
 
-lineToFourInt = map sToI.words.map putSpace.unwords.drop 2.words
+lineToFourInt = map sToI.drop 2.words.map putSpace
 
 putSpace ',' = ' '
 putSpace 'x' = ' '
