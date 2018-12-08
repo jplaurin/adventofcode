@@ -21,9 +21,9 @@ findNoOverlap xs overlapSet = head [ noId | x<-xs,
 getListIntersect (x:xs) = getListLoop x xs []
 
 getListLoop _ [] res = res
-getListLoop x xs res = getListLoop (head xs) (tail xs) newRes    -- slow
+getListLoop x xs res = getListLoop (head xs) (tail xs) newRes    
                 where  sa = getPosSet x;
-                       ls = map getPosSet xs                      -- slow
+                       ls = map getPosSet xs                      
                        newRes = (res ++ curRes)
                        curRes = [ns | sb<-ls, 
                                       let ns=IntSet.intersection sa sb, 
@@ -31,10 +31,10 @@ getListLoop x xs res = getListLoop (head xs) (tail xs) newRes    -- slow
 
 getPosSet :: [Int] -> IntSet
 getPosSet [_,x0,y0,w,h] = posSet
-    where posSet    = IntSet.fromAscList listOfPos
+    where posSet    = IntSet.fromAscList listOfPos                -- slow
           listOfPos = [pos | x<-[x0..(x0+w-1)],                   -- slow
-                              y<-[y0..(y0+h-1)],
-                              let pos = 1024*x + y]
+                              y<-[y0..(y0+h-1)],                  -- slow
+                              let pos = 1024*x + y]               -- slow
 getPosSet _ = IntSet.fromList []
 
 obtient = map (lineToFiveInt).lines
