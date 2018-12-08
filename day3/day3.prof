@@ -1,0 +1,71 @@
+	Sat Dec  8 17:48 2018 Time and Allocation Profiling Report  (Final)
+
+	   day3 +RTS -p -RTS
+
+	total time  =        8.64 secs   (8645 ticks @ 1000 us, 1 processor)
+	total alloc = 59,197,463,480 bytes  (excludes profiling overheads)
+
+COST CENTRE             MODULE SRC                      %time %alloc
+
+getPosSet.posSet        Main   day3.hs:34:11-50          41.8   41.0
+getPosSet.listOfPos     Main   day3.hs:(35,11)-(37,51)   39.2   50.2
+getPosSet.listOfPos.pos Main   day3.hs:37:35-50          17.2    8.4
+
+
+                                                                                                     individual      inherited
+COST CENTRE                       MODULE                  SRC                     no.     entries  %time %alloc   %time %alloc
+
+MAIN                              MAIN                    <built-in>               59          0    0.0    0.0   100.0  100.0
+ CAF                              GHC.IO.Exception        <entire-module>         105          0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Handle.FD        <entire-module>         102          0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Handle.Internals <entire-module>         101          0    0.0    0.0     0.0    0.0
+ CAF                              Text.Read.Lex           <entire-module>          98          0    0.0    0.0     0.0    0.0
+ CAF                              GHC.Conc.Signal         <entire-module>          95          0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Encoding         <entire-module>          91          0    0.0    0.0     0.0    0.0
+ CAF                              GHC.IO.Encoding.Iconv   <entire-module>          73          0    0.0    0.0     0.0    0.0
+ CAF:affiche                      Main                    day3.hs:53:1-7          114          0    0.0    0.0     0.0    0.0
+  affiche                         Main                    day3.hs:53:1-26         122          1    0.0    0.0     0.0    0.0
+ CAF:day3                         Main                    day3.hs:8:1-4           115          0    0.0    0.0     0.0    0.0
+  day3                            Main                    day3.hs:8:1-30          120          1    0.0    0.0     0.0    0.0
+ CAF:lineToFiveInt                Main                    day3.hs:42:1-13         112          0    0.0    0.0     0.0    0.0
+  lineToFiveInt                   Main                    day3.hs:42:1-43         137          1    0.0    0.0     0.0    0.0
+ CAF:main1                        Main                    <no location info>      116          0    0.0    0.0     0.0    0.0
+  main                            Main                    day3.hs:6:1-20          118          1    0.0    0.0     0.0    0.0
+ CAF:main7                        Main                    <no location info>      111          0    0.0    0.0     0.0    0.0
+  sToI                            Main                    day3.hs:51:1-22         142          0    0.0    0.0     0.0    0.0
+ CAF:obtient                      Main                    day3.hs:40:1-7          113          0    0.0    0.0     0.0    0.0
+  obtient                         Main                    day3.hs:40:1-35         128          1    0.0    0.0     0.0    0.0
+ main                             Main                    day3.hs:6:1-20          119          0    0.0    0.0   100.0  100.0
+  day3                            Main                    day3.hs:8:1-30          121          0    0.0    0.0   100.0  100.0
+   process                        Main                    day3.hs:(10,1)-(13,63)  124          1    0.0    0.0    99.8  100.0
+    process.a                     Main                    day3.hs:11:11-51        125          1    0.0    0.0     0.0    0.0
+    process.b                     Main                    day3.hs:12:11-56        149          1    0.0    0.0     0.1    0.1
+     findNoOverlap                Main                    day3.hs:(15,1)-(19,55)  150          1    0.0    0.0     0.1    0.1
+      findNoOverlap.interSet      Main                    day3.hs:18:37-83        156        658    0.0    0.0     0.0    0.0
+      findNoOverlap.sa            Main                    day3.hs:17:37-52        151        658    0.0    0.0     0.1    0.1
+       getPosSet                  Main                    day3.hs:(33,1)-(38,32)  152        658    0.0    0.0     0.1    0.1
+        getPosSet.listOfPos       Main                    day3.hs:(35,11)-(37,51) 153        658    0.0    0.0     0.0    0.0
+         getPosSet.listOfPos.pos  Main                    day3.hs:37:35-50        154     248534    0.0    0.0     0.0    0.0
+        getPosSet.posSet          Main                    day3.hs:34:11-50        155        658    0.1    0.0     0.1    0.0
+      findNoOverlap.noId          Main                    day3.hs:16:37-49        157          1    0.0    0.0     0.0    0.0
+    process.listOfOverlap         Main                    day3.hs:13:11-63        126          1    0.0    0.0    99.8   99.9
+     getListIntersect             Main                    day3.hs:21:1-45         127          1    0.0    0.0    99.7   99.9
+      getListLoop                 Main                    day3.hs:(23,1)-(30,61)  130       1287    0.0    0.0    99.7   99.9
+       getListLoop.curRes         Main                    day3.hs:(28,24)-(30,61) 133       1286    0.2    0.0     0.5    0.0
+        getListLoop.curRes.ns     Main                    day3.hs:29:43-70        134     827541    0.3    0.0     0.3    0.0
+       getListLoop.ls             Main                    day3.hs:26:24-44        132       1286    0.2    0.1    99.0   99.6
+        getPosSet                 Main                    day3.hs:(33,1)-(38,32)  145     827541    0.9    0.0    98.8   99.4
+         getPosSet.listOfPos      Main                    day3.hs:(35,11)-(37,51) 146     827541   39.1   50.1    56.2   58.5
+          getPosSet.listOfPos.pos Main                    day3.hs:37:35-50        147  310571680   17.2    8.4    17.2    8.4
+         getPosSet.posSet         Main                    day3.hs:34:11-50        148     827541   41.6   40.9    41.6   40.9
+       getListLoop.newRes         Main                    day3.hs:27:24-47        131       1286    0.1    0.2     0.1    0.2
+       getListLoop.sa             Main                    day3.hs:25:24-39        135       1286    0.0    0.0     0.2    0.2
+        getPosSet                 Main                    day3.hs:(33,1)-(38,32)  136       1286    0.0    0.0     0.2    0.2
+         getPosSet.listOfPos      Main                    day3.hs:(35,11)-(37,51) 140       1286    0.1    0.1     0.1    0.1
+          getPosSet.listOfPos.pos Main                    day3.hs:37:35-50        143     483004    0.0    0.0     0.0    0.0
+         getPosSet.posSet         Main                    day3.hs:34:11-50        144       1286    0.1    0.1     0.1    0.1
+   affiche                        Main                    day3.hs:53:1-26         123          0    0.0    0.0     0.0    0.0
+   obtient                        Main                    day3.hs:40:1-35         129          0    0.0    0.0     0.1    0.0
+    lineToFiveInt                 Main                    day3.hs:42:1-43         138          0    0.1    0.0     0.1    0.0
+     putSpace                     Main                    day3.hs:(44,1)-(49,14)  139      26869    0.0    0.0     0.0    0.0
+     sToI                         Main                    day3.hs:51:1-22         141       5149    0.1    0.0     0.1    0.0
