@@ -7,7 +7,16 @@ main = interact day3
 
 day3 = affiche.process.obtient
 
-process xs = (Set.size).(Set.unions).getListIntersect $ xs
+process xs = [a,b]
+    where a             = Set.size listOfOverlap
+          b             = findNoOverlap xs listOfOverlap
+          listOfOverlap = (Set.unions).getListIntersect $ xs
+
+findNoOverlap xs overlapSet = head [ noId | x<-xs, 
+                                let noId = head x, 
+                                let sa = getPosSet x,
+                                let interSet = (Set.intersection ) sa overlapSet,
+                                null interSet]
 
 getListIntersect (x:xs) = getListLoop x xs
 
@@ -18,19 +27,22 @@ getListLoop x xs = nub ( [ns| sb<-ls, let ns=Set.intersection sa sb, not(null ns
                        ls = map getPosSet xs
 
 getPosSet :: [Int] -> Set (Int,Int)
-getPosSet [x0,y0,w,h] = Set.fromList listOfPos
+getPosSet [_,x0,y0,w,h] = Set.fromList listOfPos
     where listOfPos = [(x,y)| x<-[x0..(x0+w-1)], 
                               y<-[y0..(y0+h-1)] ]
 getPosSet _ = Set.fromList []
 
-obtient = map (lineToFourInt).lines.filter (/=':')
+obtient = map (lineToFiveInt).lines
 
-lineToFourInt = map sToI.drop 2.words.map putSpace
+lineToFiveInt = map sToI.words.map putSpace
 
 putSpace ',' = ' '
 putSpace 'x' = ' '
+putSpace ':' = ' '
+putSpace '@' = ' '
+putSpace '#' = ' '
 putSpace c = c
   
 sToI s = read s :: Int
  
-affiche x = unlines [show x]
+affiche = unlines.map show 
