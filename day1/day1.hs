@@ -15,10 +15,10 @@ findPremierDup :: [Int] -> Int
 findPremierDup xs = findLoop 0 (IntSet.fromList [0]) xs
 
 findLoop :: Int -> IntSet -> [Int] -> Int
-findLoop acc s (y:ys) 
-    | IntSet.member n s = n
-    | otherwise = findLoop n (IntSet.insert n s) ys
-      where n = y + acc
+findLoop curFreq pastFreqSet (x:xs) 
+    | IntSet.member newFreq pastFreqSet = newFreq
+    | otherwise = findLoop newFreq (IntSet.insert newFreq pastFreqSet) xs
+      where newFreq = x + curFreq
 findLoop _ _ _ = 0 
 
 presenteReponse :: (Int,Int) -> String
